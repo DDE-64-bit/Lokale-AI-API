@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 import subprocess
 import logging
 
+taalModel = "hierNaamTaalModel"
+
 app = Flask(__name__)
 
 @app.route('/send_prompt', methods=['POST'])
@@ -17,7 +19,7 @@ def send_prompt():
     try:
         # Start het model subprocess en haal het resultaat op
         resultaat = subprocess.run(
-            ['ollama', 'run', 'llama3.2'],
+            ['ollama', 'run', taalModel],
             input=prompt, 
             text=True,
             capture_output=True,

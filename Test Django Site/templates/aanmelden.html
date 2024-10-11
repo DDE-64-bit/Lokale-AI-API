@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aanmelden</title>
+</head>
+<body>
+    <div>
+        <style>
+            h5{
+                color: red;
+            }
+        </style>
+        {% for message in messages %}
+        <h5>{{message}}</h5>
+        {% endfor %}
+    </div>
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Gebruikersnaam">
+        <input type="email" name="email" placeholder="Mail">
+        <input type="password" name="password" placeholder="Wachtwoord"">
+        <input type="password" name="password2" placeholder="Herhaal wachtwoord">
+
+        <button type="submit">Sign Up</button>
+        <div>
+            <p> Heb je al een account? <a href="/login"> Login </a></p>
+        </div>
+    </form>
+</body>
+</html>
