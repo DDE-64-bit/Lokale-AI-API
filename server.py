@@ -17,14 +17,13 @@ def send_prompt():
     logging.debug(f"Versturen prompt naar model: {prompt}")
 
     try:
-        # Start het model subprocess en haal het resultaat op
         resultaat = subprocess.run(
             ['ollama', 'run', taalModel],
             input=prompt, 
             text=True,
             capture_output=True,
             check=True,
-            encoding='utf-8'  # Voeg dit toe om Unicodeproblemen te voorkomen
+            encoding='utf-8'
         )
         logging.debug(f"Model output: {resultaat.stdout.strip()}")
         return jsonify({"response": resultaat.stdout.strip()})
